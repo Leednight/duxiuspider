@@ -27,7 +27,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 2
+DOWNLOAD_DELAY = 4
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -54,7 +54,8 @@ COOKIES_ENABLED = True
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    #'shijiazhuang.middlewares.ShijiazhuangDownloaderMiddleware': 543,
-    'shijiazhuang.middlewares.my_proxy': 543,
+   #设置动态IP
+   # 'shijiazhuang.middlewares.my_proxy': 543,
     'shijiazhuang.middlewares.my_useragent': 544,
 }
 

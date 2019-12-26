@@ -103,13 +103,16 @@ class ShijiazhuangDownloaderMiddleware(object):
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
-#使用代理IP防止被反爬虫
-class my_proxy(object):
-    def process_request(self,request,spider):
-        request.meta['proxy'] = 'http-pro.abuyun.com:9010'
-        proxy_name_pass = b'HE26K7092B78IN1P:9E1B6175AD890867'
-        encode_pass_name = base64.b64encode(proxy_name_pass)
-        request.headers['Proxy-Authorization'] = 'Basic ' + encode_pass_name.decode()
+# #使用代理IP防止被反爬虫
+# class my_proxy(object):
+#     def process_request(self,request,spider):
+#         #服务器地址和端口号
+#         request.meta['proxy'] = 'http-pro.abuyun.com:9010'
+#         #账号密码
+#         proxy_name_pass = b'HE26K7092B78IN1P:9E1B6175AD890867'
+#         #加密账号密码
+#         encode_pass_name = base64.b64encode(proxy_name_pass)
+#         request.headers['Proxy-Authorization'] = 'Basic ' + encode_pass_name.decode()
 
 
 
