@@ -13,7 +13,7 @@ BOT_NAME = 'shijiazhuang'
 
 SPIDER_MODULES = ['shijiazhuang.spiders']
 NEWSPIDER_MODULE = 'shijiazhuang.spiders'
-
+FEED_EXPORT_ENCODING = 'utf-8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
@@ -27,13 +27,14 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 4
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
 COOKIES_ENABLED = True
+#COOKIES_DEBUG = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -52,11 +53,16 @@ COOKIES_ENABLED = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+# RETRY_HTTP_CODES = [302]
+# RETRY_TIMES=5
 DOWNLOADER_MIDDLEWARES = {
-   #'shijiazhuang.middlewares.ShijiazhuangDownloaderMiddleware': 543,
+    # 'scrapy.downloadermiddlewares.retry.RetryMiddleware': 500,
+
+    #'shijiazhuang.middlewares.ShijiazhuangDownloaderMiddleware': 543,
    #设置动态IP
-   # 'shijiazhuang.middlewares.my_proxy': 543,
+    'shijiazhuang.middlewares.my_proxy': 543,
     'shijiazhuang.middlewares.my_useragent': 544,
+
 }
 
 # Enable or disable extensions
